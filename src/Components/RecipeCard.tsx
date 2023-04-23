@@ -5,8 +5,9 @@ interface Props {
   picture: string
   label: string
   calories: string
+  ingrediant: string
 }
-const RecipeCard = ({ picture, label, calories }: Props) => {
+const RecipeCard = ({ picture, label, calories, ingrediant }: Props) => {
   return (
     <Card maxW="sm">
       <CardBody>
@@ -15,6 +16,7 @@ const RecipeCard = ({ picture, label, calories }: Props) => {
           <Heading size="md"></Heading>
           <Text fontSize={42}> {label}</Text>
           <Text>{calories}</Text>
+          <Text> {ingrediant}</Text>
         </Stack>
       </CardBody>
       <Divider />

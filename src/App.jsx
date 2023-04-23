@@ -33,11 +33,11 @@ function App() {
     <>
       <form onSubmit={getSearch}>
         {" "}
-        <input type="text" placeholder="search.." onChange={updateSearch} />
+        <input type="text" placeholder="s earch.." onChange={updateSearch} />
         <button type="submit"> Search </button>
       </form>
       {recipe.map(recipe => (
-        <RecipeCard label={recipe.recipe.label} picture={recipe.recipe.image} calories={recipe.recipe.calories} key={recipe.recipe.label} />
+        <RecipeCard label={recipe.recipe.label} picture={recipe.recipe.image} calories={recipe.recipe.calories} key={recipe.recipe.label} ingrediant={recipe.recipe.ingredientLines} />
       ))}
     </>
   )
