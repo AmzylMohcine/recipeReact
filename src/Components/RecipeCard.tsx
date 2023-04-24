@@ -1,13 +1,17 @@
 import { Card, CardBody, Stack, Image, Heading, Text, Divider, Button, CardFooter, ButtonGroup } from "@chakra-ui/react"
 import React from "react"
 
+interface Ingrediants {
+  id: number
+  text: string
+}
 interface Props {
   picture: string
   label: string
   calories: string
-  ingrediant: string
+  ingrediants: Ingrediants[]
 }
-const RecipeCard = ({ picture, label, calories, ingrediant }: Props) => {
+const RecipeCard = ({ picture, label, calories, ingrediants }: Props) => {
   return (
     <Card maxW="sm">
       <CardBody>
@@ -16,7 +20,11 @@ const RecipeCard = ({ picture, label, calories, ingrediant }: Props) => {
           <Heading size="md"></Heading>
           <Text fontSize={42}> {label}</Text>
           <Text>{calories}</Text>
-          <Text> {ingrediant}</Text>
+          <Text>
+            {ingrediants.map(ingrediant => (
+              <li key={ingrediant.id}> {ingrediant.text}</li>
+            ))}
+          </Text>
         </Stack>
       </CardBody>
       <Divider />

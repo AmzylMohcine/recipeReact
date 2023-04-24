@@ -39,7 +39,7 @@ function App() {
         onChangeHandler={updateSearch}
       />
       {recipe.map(recipe => (
-        <RecipeCard label={recipe.recipe.label} picture={recipe.recipe.image} calories={recipe.recipe.calories} key={recipe.recipe.label} ingrediant={recipe.recipe.ingredientLines} />
+        <RecipeCard label={recipe.recipe.label} picture={recipe.recipe.image} calories={Math.round(recipe.recipe.calories) + " Calories "} key={recipe.recipe.label} ingrediants={recipe.recipe.ingredients} />
       ))}
     </>
   )
