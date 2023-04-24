@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import "./App.css"
 import RecipeCard from "./Components/RecipeCard"
+import FormSearch from "./Components/FormSearch"
 
 function App() {
   const APP_ID = "4c258139"
@@ -24,18 +25,19 @@ function App() {
     setSearch(e.target.value)
   }
 
-  const getSearch = e => {
-    e.preventDefault()
+  const getSearch = () => {
     setQuery(search)
     setSearch("")
   }
   return (
     <>
-      <form onSubmit={getSearch}>
-        {" "}
-        <input type="text" placeholder="s earch.." onChange={updateSearch} />
-        <button type="submit"> Search </button>
-      </form>
+      <FormSearch
+        onSubmitSearch={e => {
+          e.preventDefault()
+          getSearch()
+        }}
+        onChangeHandler={updateSearch}
+      />
       {recipe.map(recipe => (
         <RecipeCard label={recipe.recipe.label} picture={recipe.recipe.image} calories={recipe.recipe.calories} key={recipe.recipe.label} ingrediant={recipe.recipe.ingredientLines} />
       ))}
