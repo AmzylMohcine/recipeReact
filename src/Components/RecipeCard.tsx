@@ -5,29 +5,36 @@ interface Ingrediants {
   id: number
   text: string
 }
+
 interface Props {
   picture: string
   label: string
   calories: string
   ingrediants: Ingrediants[]
 }
+
 const RecipeCard = ({ picture, label, calories, ingrediants }: Props) => {
   return (
-    <Card maxW="sm">
+    <Card display="flex" flexDirection="row" gap={20} marginBottom={20}>
+      <Image src={picture} alt={label} />
+
       <CardBody>
-        <Image src={picture} alt="Green double couch with wooden legs" borderRadius="lg" />
-        <Stack mt="6" spacing="3">
-          <Heading size="md"></Heading>
-          <Text fontSize={42}> {label}</Text>
-          <Text>{calories}</Text>
-          <Text>
-            {ingrediants.map(ingrediant => (
-              <li key={ingrediant.id}> {ingrediant.text}</li>
-            ))}
+        <Stack spacing="3">
+          <Heading size="md">{label}</Heading>
+          <Text fontWeight="bold" color="green.500">
+            {calories} calories
           </Text>
+          <Divider />
+          <Text fontSize="md" fontWeight="semibold">
+            Ingredients:
+          </Text>
+          <Stack spacing="1">
+            {ingrediants.map(ingrediant => (
+              <Text key={ingrediant.id}>{ingrediant.text}</Text>
+            ))}
+          </Stack>
         </Stack>
       </CardBody>
-      <Divider />
     </Card>
   )
 }

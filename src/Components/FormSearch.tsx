@@ -1,3 +1,4 @@
+import { Input, InputGroup } from "@chakra-ui/react"
 import React from "react"
 
 interface Props {
@@ -9,8 +10,10 @@ const FormSearch = ({ onSubmitSearch, onChangeHandler }: Props) => {
   return (
     <form onSubmit={e => onSubmitSearch(e)}>
       {" "}
-      <input type="text" placeholder="s earch.." onChange={e => onChangeHandler(e)} />
-      <button type="submit"> Search </button>
+      <InputGroup>
+        <input placeholder="search recipes .. " onChange={e => onChangeHandler(e)} />
+        <button type="submit"> Search </button>
+      </InputGroup>
     </form>
   )
 }
